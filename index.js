@@ -27,23 +27,10 @@ ArduinoIoTCloud.connect(options)
     return thingsApi.thingsV2List()
       .then(things => {
 
-        var value = false;
+        var value = true;
         ArduinoIoTCloud.sendProperty(thingId, variableName, value).then(() => {
             console.log("Property value correctly sent");
         });  
-
-        /*things.forEach(thing => {
-          propertiesAPI.propertiesV2List(thing.id)
-            .then(properties => {
-              properties.forEach(property => {
-                ArduinoIoTCloud.onPropertyValue(thing.id, property.variable_name,
-                  showUpdates = value => console.log(property.variable_name + ": " + value))
-                  .then(() => console.log("Callback registered for " + property.variable_name))
-                  .catch(error => console.error(error));
-              });
-            })
-            .catch(error => console.error(error));
-        });*/
       });
   })
   .catch(error => console.error(error));
