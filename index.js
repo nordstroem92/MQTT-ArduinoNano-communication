@@ -27,7 +27,7 @@ ArduinoIoTCloud.connect(options)
     return thingsApi.thingsV2List()
       .then(things => {
 
-        var value = true;
+        var value = false;
         ArduinoIoTCloud.sendProperty(thingId, variableName, value).then(() => {
             console.log("Property value correctly sent");
         });  
